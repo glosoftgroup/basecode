@@ -26,7 +26,7 @@ def retries_countdown(retries, constant_retries=5):
         return 60 * (3 * (2 ** retries))
 
 
-@shared_task(bind=True, Ignore_results=True, name='tasks.longtime_add')
+@shared_task(bind=True, name='tasks.longtime_add')
 def longtime_add(x, y):
     logger.info('long time task begins')
     # sleep 5 seconds
