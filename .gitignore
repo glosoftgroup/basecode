@@ -15,6 +15,9 @@
 # Vim n co
 *.swp
 
+# cached files
+configuration/__pycache__/
+
 # Vagrant private files
 .vagrant/*
 log
