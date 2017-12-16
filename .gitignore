@@ -1,7 +1,6 @@
 # Compiled Python modules
 *.pyo
 *.pyc
-.idea/workspace.xml
 
 # SQLite
 *.db
@@ -46,7 +45,7 @@ celerybeat.pid
 .kateproject
 .kateproject.d/
 
-# ingore virtualenv
+# ignore virtualenv
 .venv
 .elasticbeanstalk/config.yml
 log
