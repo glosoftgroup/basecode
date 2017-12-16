@@ -170,6 +170,12 @@ LOGGING = {
         },
     },
     'handlers': {
+        'info_logfile': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'log/info.log',
+            'formatter': 'verbose'
+        },
         'debug_logfile': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
@@ -206,6 +212,11 @@ LOGGING = {
         'core': {
             'handlers': ['console', 'debug_logfile'],
             'level': 'DEBUG',
+        },
+        'celery': {
+            'handlers': ['console', 'info_logfile'],
+            'level': 'INFO',
+            'propagate': True
         },
         'app_dir': {
             'handlers': ['console', 'debug_logfile'],
@@ -244,7 +255,7 @@ DEFAULT_CUSTOM_API_KEY = 'B+XXazAET/ZGVmYXVsdHN0cm9uZ2tleWZvcnRoZWFwaQ=='
 
 # broker url
 BROKER_USE_SSL = False
-BROKER_URL = "amqp://guest:guest@rabbitmq:5676//"
+BROKER_URL = "amqp://guest:guest@rabbitmq:5672//"
 
 # celery configs
 CELERY_ENABLE_REMOTE_CONTROL = True

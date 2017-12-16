@@ -13,20 +13,22 @@ try:
     app.config_from_object('django.conf:settings')
     app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
-    broker_url = app.conf.get('BROKER_URL', None)
-    broker_domain_name = None
-
+    @app.task(bind=True)
     def debug_task(self):
         """Used to test the connection to the rabbitMQ broker during startup"""
         print('Request: {0!r}'.format(self.request))
 
+    broker_url = app.conf.get('BROKER_URL', None)
+    broker_domain_name = None
+
     if broker_url:
         broker_domain_name = broker_url.split('@')[1]
-        logger.info('rabbitmq-connection-started')
-        debug_task.delay()
-        logger.info('rabbitmq-connection-success', message='rabbitmq broker connection '
-                                                           'successful to domain {0}'
-                    .format(str(broker_domain_name)))
+
+    logger.info('rabbitmq-connection-started')
+    debug_task.delay()
+    logger.info('rabbitmq-connection-success', message='rabbitmq broker connection '
+                                                       'successful to domain {0}'
+                .format(str(broker_domain_name)))
 
 except Exception as e:
     logger.exception('rabbitmq-connection-error',
