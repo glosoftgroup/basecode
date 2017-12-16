@@ -27,7 +27,7 @@ def retries_countdown(retries, constant_retries=5):
 
 
 @shared_task(bind=True, name='tasks.longtime_add')
-def longtime_add(x, y):
+def longtime_add(self, x, y):
     logger.info('long time task begins')
     # sleep 5 seconds
     time.sleep(5)

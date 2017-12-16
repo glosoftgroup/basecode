@@ -214,8 +214,8 @@ LOGGING = {
             'level': 'DEBUG',
         },
         'celery': {
-            'handlers': ['console', 'info_logfile'],
-            'level': 'INFO',
+            'handlers': ['console', 'error_logfile'],
+            'level': 'ERROR',
             'propagate': True
         },
         'app_dir': {
