@@ -258,6 +258,12 @@ BROKER_USE_SSL = False
 BROKER_URL = "amqp://guest:guest@rabbitmq:5672//"
 
 # celery configs
+
+CELERY_ROUTES = {
+    'tasks.longtime_add': {'queue': 'longtime_add'}
+}
+
+
 CELERY_ENABLE_REMOTE_CONTROL = True
 BROKER_HEARTBEAT = 10
 CELERYD_MAX_TASKS_PER_CHILD = 100

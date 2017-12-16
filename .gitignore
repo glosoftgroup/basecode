@@ -1,6 +1,7 @@
 # Compiled Python modules
 *.pyo
 *.pyc
+.idea/workspace.xml
 
 # SQLite
 *.db
