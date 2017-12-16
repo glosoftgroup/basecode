@@ -28,3 +28,12 @@ services:
       - DEV_LOGIN_USERNAME=admin
       - DEV_LOGIN_PASSWORD=admin
       - DEV_LOGIN_EMAIL=admin@example.com
+
+  rabbitmq:
+    image: gonkulatorlabs/rabbitmq:3.6.1
+    ports:
+      - 15690:15672
+      - 5675:5671
+      - 5676:5672
+
+

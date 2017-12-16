@@ -16,3 +16,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+BROKER_USE_SSL = True
+BROKER_URL = "amqp://guest:guest@rabbitmq:5676//"
+

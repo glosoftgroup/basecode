@@ -241,3 +241,12 @@ REST_FRAMEWORK = {
 
 # api key that Console needs to use to call Hermes-sms
 DEFAULT_CUSTOM_API_KEY = 'B+XXazAET/ZGVmYXVsdHN0cm9uZ2tleWZvcnRoZWFwaQ=='
+
+# broker url
+BROKER_USE_SSL = False
+BROKER_URL = "amqp://guest:guest@rabbitmq:5676//"
+
+# celery configs
+CELERY_ENABLE_REMOTE_CONTROL = True
+BROKER_HEARTBEAT = 10
+CELERYD_MAX_TASKS_PER_CHILD = 100
