@@ -11,7 +11,7 @@ from structlog import get_logger
 
 from .plugins import plugin_dir
 
-logger = get_logger(__name__).bind(action="hermes_health_check")
+logger = get_logger(__name__).bind(action="basecode_health_check")
 
 
 class HealthView(TemplateView):
