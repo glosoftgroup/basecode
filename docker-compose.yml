@@ -42,7 +42,7 @@ services:
     depends_on:
       - db
       - rabbitmq
-    command: ./devops/docker_devops/worker_server.sh
+    command: bash -c "./devops/scripts/wait-for-it.sh -t 300 app:80 && ./devops/docker_devops/worker_server.sh"
     volumes:
       - ./:/usr/src/app
     links:

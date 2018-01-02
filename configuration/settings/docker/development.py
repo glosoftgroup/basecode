@@ -1,4 +1,4 @@
-from configuration.settings.base import *
+from configuration.settings.development import *
 
 DATABASES = {
     'default': {
