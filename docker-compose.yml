@@ -50,6 +50,6 @@ services:
       - rabbitmq
     environment:
       -  C_FORCE_ROOT=true
-      - DJANGO_SETTINGS_MODULE=configuration.settings.development
+      - DJANGO_SETTINGS_MODULE=configuration.settings.docker.development
     ports:
       - 5555:5555
