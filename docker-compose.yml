@@ -42,7 +42,7 @@ services:
     depends_on:
       - db
       - rabbitmq
-    command: bash -c "./devops/scripts/wait-for-it.sh -t 300 app:80 && ./devops/docker_devops/worker_server.sh"
+    command: ./devops/docker_devops/worker_server.sh
     volumes:
       - ./:/usr/src/app
     links:
@@ -50,6 +50,6 @@ services:
       - rabbitmq
     environment:
       -  C_FORCE_ROOT=true
-      - DJANGO_SETTINGS_MODULE=configuration.settings.docker.development
+      - DJANGO_SETTINGS_MODULE=configuration.settings.development
     ports:
       - 5555:5555
