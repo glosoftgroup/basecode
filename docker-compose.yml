@@ -53,3 +53,17 @@ services:
       - DJANGO_SETTINGS_MODULE=configuration.settings.docker.development
     ports:
       - 5555:5555
+
+  js-assistant:
+    build:
+      context: .
+      dockerfile: JsAssistantDockerfile
+    volumes:
+      - ./:/usr/src/app
+
+  sass-assistant:
+    build:
+      context: .
+      dockerfile: SassAssistantDockerfile
+    volumes:
+      - ./:/usr/src/app
