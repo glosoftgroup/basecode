@@ -17,8 +17,10 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from app_dir.core.views import test_celery
+from app_dir.core.views import index
 
 urlpatterns = [
+    url(r'^$', index, name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^test_celery', test_celery, name='test_celery'),
 ]

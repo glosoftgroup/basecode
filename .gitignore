@@ -54,6 +54,9 @@ celerybeat.pid
 .elasticbeanstalk/config.yml
 log
 *.pyc
+__pycache__/
+*.cpython-36.pyc
+.sass-cache/*
 
 # Elastic Beanstalk Files
 !.elasticbeanstalk/*.cfg.yml
@@ -91,3 +94,4 @@ ansible.cfg
 docker-stack-*.yml
 .ebextensions/log_deployment.json
 log_deployment.json
+webpack-bundle.json

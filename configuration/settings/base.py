@@ -20,7 +20,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_DIR = os.path.dirname(BASE_DIR)
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -59,6 +58,7 @@ DEFAULT_APPS = (
 
 THIRD_PARTY_APPS = (
     'gunicorn',
+    'webpack_loader'
 )
 
 LOCAL_APPS = (
@@ -85,7 +85,7 @@ ROOT_URLCONF = 'configuration.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(PROJECT_DIR+'/app_dir/', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -150,6 +150,22 @@ USE_TZ = True
 STATIC_ROOT = os.path.abspath(os.path.join(PROJECT_DIR, 'static'))
 
 STATIC_URL = '/static/'
+
+MAIN_PROJECT = os.path.dirname(__file__)
+
+STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(MAIN_PROJECT, '../../app_dir/static/'),
+)
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+]
+
 S3_BUCKET = ''
 S3_ACCESS_KEY = ''
 S3_SECRET_KEY = ''
@@ -267,3 +283,11 @@ CELERY_ROUTES = {
 CELERY_ENABLE_REMOTE_CONTROL = True
 BROKER_HEARTBEAT = 10
 CELERYD_MAX_TASKS_PER_CHILD = 100
+
+# webpack settings
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'dist/',
+        'STATS_FILE': os.path.join(PROJECT_DIR, 'webpack-stats.json'),
+    }
+}

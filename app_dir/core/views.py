@@ -1,8 +1,15 @@
 from django.http import HttpResponse
+from django.template.response import TemplateResponse
+
 from app_dir.core import tasks
 from structlog import get_logger
 
 logger = get_logger(__name__)
+
+
+def index(request):
+    return TemplateResponse(request, 'index.html',
+                            {})
 
 
 def test_celery(request):
