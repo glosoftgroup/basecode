@@ -1,5 +1,24 @@
-import './core/libraries/jquery.min.js';
- // import './core/libraries/bootstrap.min.js';
-// import './plugins/loaders/blockui.min.js';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import PanelBlock from './components/PanelBlock'
 
-// import '../css/core.css';
+//
+//const element = <PanelBlock name="Sara" />;
+//ReactDOM.render(
+//  element,
+//  document.getElementById('root')
+//);
+
+
+
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+const element = <Welcome name="World" />;
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+
+
