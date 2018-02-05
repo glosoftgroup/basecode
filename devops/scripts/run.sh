@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+python manage.py makemigrations --settings=$DJANGO_SETTINGS_MODULE
+python manage.py migrate --settings=$DJANGO_SETTINGS_MODULE
+
 python manage.py migrate --noinput --settings=$DJANGO_SETTINGS_MODULE
 python manage.py createcachetable basecode_cache
 python manage.py createcachetable request_cache

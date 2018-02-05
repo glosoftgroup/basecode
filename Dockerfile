@@ -15,4 +15,4 @@ EXPOSE 80
 EXPOSE 8000
 EXPOSE 3000
 
-CMD ./devops/scripts/wait-for-it.sh -t 300 db:5432 && ./devops/scripts/run.sh
+CMD ./devops/scripts/wait-for-it.sh -t 300 db:5432 && ./devops/scripts/run.sh True

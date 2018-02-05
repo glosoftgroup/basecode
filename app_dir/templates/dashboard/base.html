@@ -22,7 +22,9 @@
     <link href="{% static 'css/core.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/components.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/colors.css' %}" rel="stylesheet" type="text/css">
-
+    <style>
+    .content{padding-top:66px important!;}
+`</style>
     <!--custom css-->
      {% block custom_css %}
      {% endblock %}
@@ -42,7 +44,7 @@
     <!-- /theme JS files -->
 
 </head>
-<body>
+<body class="navbar-top pace-done">
 
 	<!-- Main navbar -->
      {% include "dashboard/partials/main_navbar.html" %}
@@ -63,8 +65,27 @@
 			<!-- Main content -->
 			<div class="content-wrapper">
 
+                    <!--breadcrumb-->
+                    <div class="breadcrumb-line fix-breadcrumb" style="position: fixed;width: 100%;top:50px;z-index:2">
+                        <ul class="breadcrumb">
+                           <li><a href="#"><span class="icon-home">
+
+                           <span data-popup="tooltip" tite='Edit product' data-placement="bottom" data-original-title="Back to dashboard"> Home</span></a></li>
+                           {% block breadcrumbs %}
+                          <li class="active">{% trans "Home" context "Dashboard homepage" %}</li>
+                           {% endblock %}
+                        </ul>
+                        <ul class="breadcrumb-elements">
+                          {% block header_extra %}
+                          {% endblock %}
+                        </ul>
+                        <!--  -->
+                      <a class="breadcrumb-elements-toggle"><i class="icon-menu-open"></i></a>
+                    </div>
+                    <!--/breadcrumb-->
 				<!-- Content area -->
-				<div class="content">
+				<div class="content" style="padding: 60px 20px 60px;">
+
 					{% block content %}{% endblock %}
 					<!-- Footer -->
 					<div class="footer text-muted">

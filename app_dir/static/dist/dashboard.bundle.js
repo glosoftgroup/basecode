@@ -9385,24 +9385,7 @@ var _PanelBlock2 = _interopRequireDefault(_PanelBlock);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//
-//const element = <PanelBlock name="Sara" />;
-//ReactDOM.render(
-//  element,
-//  document.getElementById('root')
-//);
-
-
-function Welcome(props) {
-  return _react2.default.createElement(
-    'h1',
-    null,
-    'Hello, ',
-    props.name
-  );
-}
-
-var element = _react2.default.createElement(Welcome, { name: 'World' });
+var element = _react2.default.createElement(_PanelBlock2.default, { name: 'Sara' });
 _reactDom2.default.render(element, document.getElementById('root'));
 
 /***/ }),
