@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-python manage.py makemigrations --settings=$DJANGO_SETTINGS_MODULE
-python manage.py migrate --settings=$DJANGO_SETTINGS_MODULE
+printf '=%.0s' {1..100}
+
+echo 'Making migrations ....'
+python manage.py makemigrations --noinput
+
 
 python manage.py migrate --noinput --settings=$DJANGO_SETTINGS_MODULE
 python manage.py createcachetable basecode_cache

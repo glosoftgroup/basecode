@@ -17,6 +17,13 @@
 
 # cached files
 configuration/__pycache__/
+app_dir/__pycache__/
+app_dir/api/__pycache__/
+loglib/__pycache__/
+utilities/__pycache__/
+*/__pycache__/*
+
+package-lock.json
 
 # Vagrant private files
 .vagrant/*
@@ -57,6 +64,7 @@ log
 __pycache__/
 *.cpython-36.pyc
 .sass-cache/*
+.sass-cache
 
 # Elastic Beanstalk Files
 !.elasticbeanstalk/*.cfg.yml
@@ -95,3 +103,6 @@ docker-stack-*.yml
 .ebextensions/log_deployment.json
 log_deployment.json
 webpack-bundle.json
+
+/app_dir/*/migrations/*
+!/app_dir/*/migrations/__init__.py
